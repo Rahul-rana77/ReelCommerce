@@ -1,0 +1,166 @@
+/* Shared auth UI styles using CSS variables */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+}
+
+.auth-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.02));
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.auth-header {
+  margin-bottom: 18px;
+}
+.auth-title {
+  margin: 0 0 6px 0;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+.auth-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Full-width block button */
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--input-border);
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.small-note {
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+.form-row {
+  position: relative;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* Labels placed at the top-left corner of the input field */
+.form-row label {
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  background: var(--card-bg);
+  padding: 0 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* Ensure inputs have space from the floating label */
+.form-row .input,
+.form-row .textarea {
+  margin-top: 8px;
+}
+
+/* Paired fields (two columns in one row) */
+.form-row.pair {
+  display: flex;
+  gap: 12px;
+}
+.form-row.pair .form-col {
+  flex: 1 1 0;
+  position: relative;
+}
+.form-row.pair .form-col label {
+  top: -9px;
+  left: 12px;
+}
+.form-row.pair .form-col .input {
+  margin-top: 8px;
+}
+
+.link-inline {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 18px;
+  }
+}

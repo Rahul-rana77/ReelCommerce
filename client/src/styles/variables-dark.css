@@ -1,0 +1,14 @@
+/* Dark theme variables */
+:root {
+  --bg: #071029;
+  --text: #e6eef8;
+  --muted: #9aa7bd;
+  --card-bg: #0f1724;
+  --accent: #7c8cff;
+  --accent-contrast: #071029;
+  --input-bg: #061226;
+  --input-border: #1f2937;
+  --radius: 12px;
+  --shadow: 0 10px 32px rgba(2, 6, 23, 0.6);
+  --glass: rgba(255, 255, 255, 0.03);
+}

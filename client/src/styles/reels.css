@@ -1,0 +1,154 @@
+/* Reset page spacing and full-height roots to ensure edge-to-edge reels */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Full-screen vertical reels with scroll snap */
+.reels-container {
+  /* Fix container to viewport edges so reels are truly edge-to-edge */
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  background: #000;
+  z-index: 0;
+}
+
+.reel-item {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  display: block;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.reel-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  outline: none;
+}
+
+/* Overlay with description and button positioned on top of the video */
+.reel-overlay {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 2;
+  color: #fff;
+  pointer-events: auto;
+  /* subtle background gradient for readability */
+  padding: 0 12px 12px 12px;
+  border-radius: 8px;
+}
+
+.reel-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 70%;
+}
+
+.reel-username {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.reel-desc {
+  font-size: 14px;
+  line-height: 1.2;
+  max-width: 100%;
+  /* clamp to 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 6px;
+}
+
+.reel-music {
+  font-size: 12px;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.view-store {
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.reel-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-right: 6px;
+  width: 64px;
+}
+
+.reel-actions .action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.reel-actions .action .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.reel-actions .action .icon {
+  font-size: 22px;
+}
+.reel-actions .action .count {
+  font-size: 12px;
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+/* Optional: hide scrollbar for cleaner look */
+.reels-container::-webkit-scrollbar {
+  width: 8px;
+}
+.reels-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+@media (min-width: 1024px) {
+  /* On large screens keep same behavior but allow pointer cursor */
+  .reel-video {
+    cursor: pointer;
+  }
+}
